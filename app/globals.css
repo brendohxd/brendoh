@@ -112,6 +112,7 @@ h2 { margin-bottom: 0; font-size: clamp(3rem, 5vw, 5.25rem); font-weight: 700; l
 .filter { min-height: 32px; padding: 0 13px; border: 1px solid var(--line); border-radius: 100px; background: transparent; color: #777d78; cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; transition: background .2s ease, color .2s ease, border-color .2s ease; }
 .filter:hover, .filter--active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
 .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 17px; }
+.project-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-card { position: relative; display: grid; grid-template-columns: 92px minmax(0, 1fr); min-height: 301px; gap: 23px; padding: 24px; border: 1px solid var(--line); background: rgba(255, 255, 255, .28); transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
 a.project-card:hover { background: white; box-shadow: 8px 8px 0 var(--lime); transform: translate(-3px, -3px); }
 .project-mark { position: relative; display: flex; min-height: 100%; align-items: flex-end; justify-content: space-between; padding: 10px; overflow: hidden; color: var(--ink); }

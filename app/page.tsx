@@ -15,21 +15,21 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: 'Project Relay',
-    kind: 'Open tooling',
+    name: 'fleet-service-tracker',
+    kind: 'Field software',
     description:
-      'A coordination and evidence layer for turning messy work into a clearer human decision.',
-    status: 'Building in public',
-    accent: 'coral',
+      'A practical service workspace for keeping fleet records, fitment checks, and real-world maintenance in sync.',
+    status: 'Shipping carefully',
+    accent: 'lime',
     number: '01',
-    tags: ['product', 'open source'],
-    href: 'https://github.com/brendohxd/Project-Relay',
+    tags: ['software', 'operations'],
+    href: 'https://github.com/brendohxd/fleet-service-tracker',
   },
   {
-    name: 'ITSM',
+    name: 'ITSM Cosmology',
     kind: 'Research notebook',
     description:
-      'A long-running attempt to make ambitious ideas more explicit, testable, and honest about their limits.',
+      'A long-running cosmology research program working to make ambitious ideas more explicit, testable, and honest about their limits.',
     status: 'Deep work',
     accent: 'violet',
     number: '02',
@@ -37,15 +37,15 @@ const projects: Project[] = [
     href: 'https://github.com/brendohxd/ITSM-Integrated-Toroidal-Syntropic-Model',
   },
   {
-    name: 'Fleet Service Tracker',
-    kind: 'Field software',
+    name: 'Project-Relay',
+    kind: 'Open tooling',
     description:
-      'A practical service workspace for keeping fleet records, fitment checks, and real-world maintenance in sync.',
-    status: 'Shipping carefully',
-    accent: 'lime',
+      'A coordination and evidence layer for turning messy work into a clearer human decision.',
+    status: 'Building in public',
+    accent: 'coral',
     number: '03',
-    tags: ['software', 'operations'],
-    href: 'https://github.com/brendohxd/fleet-service-tracker',
+    tags: ['product', 'open source'],
+    href: 'https://github.com/brendohxd/Project-Relay',
   },
   {
     name: 'Syntropy-Nexus',
@@ -55,8 +55,19 @@ const projects: Project[] = [
     status: 'In the lab',
     accent: 'blue',
     number: '04',
-    tags: ['apps', 'experiments'],
+    tags: ['software', 'experiments'],
     href: 'https://github.com/brendohxd/Syntropy-Nexus',
+  },
+  {
+    name: 'Planetary Live Risk Watch',
+    kind: 'Public dashboard',
+    description:
+      'An evidence-aware watch desk for tracking planetary risk signals, historical context, and what remains uncertain.',
+    status: 'Watching carefully',
+    accent: 'coral',
+    number: '05',
+    tags: ['research', 'dashboard'],
+    href: 'https://github.com/brendohxd/Planetary-Live-Risk-Watch',
   },
 ];
 
