@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import SyntropicPet from './components/SyntropicPet';
 
 export const metadata: Metadata = {
   title: 'brendoh — making room for better questions',
@@ -32,7 +31,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <SyntropicPet />
       </body>
     </html>
   );

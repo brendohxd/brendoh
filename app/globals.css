@@ -265,32 +265,6 @@ a.project-card:hover { background: white; box-shadow: 8px 8px 0 var(--lime); tra
   .project-detail__return { padding-bottom: 90px; }
 }
 
-.syntropic-pet {
-  position: fixed;
-  z-index: 30;
-  width: 96px;
-  height: 104px;
-  pointer-events: none;
-  opacity: 0;
-  background-image: url('/pets/syntropic-seeker-of-truth/spritesheet.webp');
-  background-repeat: no-repeat;
-  background-size: 800% 1100%;
-  background-position: var(--sprite-x) var(--sprite-y);
-  transform: translate(-50%, -100%);
-  transition: left var(--move-duration) linear, top var(--move-duration) linear, opacity .35s ease;
-  will-change: left, top, background-position;
-}
-
-.syntropic-pet[data-ready='true'] { opacity: 1; }
-
-@media (max-width: 570px) {
-  .syntropic-pet { width: 78px; height: 85px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .syntropic-pet { transition: opacity .35s ease; }
-}
-
 /* Dedicated section pages */
 .site-nav { gap: 24px; }
 .site-nav a[aria-current='page'] { color: var(--ink); }
