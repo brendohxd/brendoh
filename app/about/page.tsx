@@ -1,44 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { projects, researchLinks } from '../projects/project-data';
 
 export const metadata: Metadata = {
   title: 'About — brendoh',
   description:
     'About Brendon James Boyd: independent researcher, developer, and practical builder.',
 };
-
-const projects = [
-  {
-    name: 'fleet-service-tracker',
-    kind: 'Field software',
-    detail: 'Practical tools for records, fitment, and maintenance.',
-    href: 'https://github.com/brendohxd/fleet-service-tracker',
-  },
-  {
-    name: 'ITSM Cosmology',
-    kind: 'Research program',
-    detail: 'Cosmology, gravitation, and open-system questions.',
-    href: 'https://github.com/brendohxd/ITSM-Integrated-Toroidal-Syntropic-Model',
-  },
-  {
-    name: 'Project-Relay',
-    kind: 'Open tooling',
-    detail: 'Coordination and evidence for clearer human decisions.',
-    href: 'https://github.com/brendohxd/Project-Relay',
-  },
-  {
-    name: 'Syntropy-Nexus',
-    kind: 'Product lab',
-    detail: 'Shared memory, collaboration, and companionable tools.',
-    href: 'https://github.com/brendohxd/Syntropy-Nexus',
-  },
-  {
-    name: 'Planetary Live Risk Watch',
-    kind: 'Public dashboard',
-    detail: 'Risk signals, historical context, and visible uncertainty.',
-    href: 'https://github.com/brendohxd/Planetary-Live-Risk-Watch',
-  },
-];
 
 const principles = [
   ['01', 'Evidence before certainty', 'Make the claim legible. Keep the trail. Say what is known, what is inferred, and what still needs work.'],
@@ -157,13 +125,13 @@ export default function AboutPage() {
         </div>
         <div className="about-project-list">
           {projects.map((project, index) => (
-            <a className="about-project" href={project.href} target="_blank" rel="noreferrer" key={project.name}>
+            <Link className="about-project" href={`/projects/${project.slug}`} key={project.name}>
               <span className="about-project__number">0{index + 1}</span>
               <span className="about-project__name">{project.name}</span>
               <span className="about-project__kind">{project.kind}</span>
-              <span className="about-project__detail">{project.detail}</span>
+              <span className="about-project__detail">{project.shortDetail}</span>
               <ArrowUpRight />
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -191,6 +159,17 @@ export default function AboutPage() {
         <p>
           brendoh.com is where the projects, notes, experiments, and support links can meet in one place — not as a polished finish line, but as a record of the trail.
         </p>
+        <div className="profile-links profile-links--about">
+          <p className="profile-links__label">Research record</p>
+          <div className="profile-links__list">
+            {researchLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                <span><strong>{link.label}</strong><small>{link.value}</small></span>
+                <ArrowUpRight />
+              </a>
+            ))}
+          </div>
+        </div>
         <Link className="button button--dark" href="/#support">Support the work <ArrowUpRight /></Link>
       </section>
 

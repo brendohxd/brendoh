@@ -2,75 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-
-type Project = {
-  name: string;
-  kind: string;
-  description: string;
-  status: string;
-  accent: string;
-  number: string;
-  tags: string[];
-  href?: string;
-};
-
-const projects: Project[] = [
-  {
-    name: 'fleet-service-tracker',
-    kind: 'Field software',
-    description:
-      'A practical service workspace for keeping fleet records, fitment checks, and real-world maintenance in sync.',
-    status: 'Shipping carefully',
-    accent: 'lime',
-    number: '01',
-    tags: ['software', 'operations'],
-    href: 'https://github.com/brendohxd/fleet-service-tracker',
-  },
-  {
-    name: 'ITSM Cosmology',
-    kind: 'Research notebook',
-    description:
-      'A long-running cosmology research program working to make ambitious ideas more explicit, testable, and honest about their limits.',
-    status: 'Deep work',
-    accent: 'violet',
-    number: '02',
-    tags: ['research', 'physics'],
-    href: 'https://github.com/brendohxd/ITSM-Integrated-Toroidal-Syntropic-Model',
-  },
-  {
-    name: 'Project-Relay',
-    kind: 'Open tooling',
-    description:
-      'A coordination and evidence layer for turning messy work into a clearer human decision.',
-    status: 'Building in public',
-    accent: 'coral',
-    number: '03',
-    tags: ['product', 'open source'],
-    href: 'https://github.com/brendohxd/Project-Relay',
-  },
-  {
-    name: 'Syntropy-Nexus',
-    kind: 'Product lab',
-    description:
-      'A cross-device space for exploring how thoughtful tools can feel more companionable and more capable.',
-    status: 'In the lab',
-    accent: 'blue',
-    number: '04',
-    tags: ['software', 'experiments'],
-    href: 'https://github.com/brendohxd/Syntropy-Nexus',
-  },
-  {
-    name: 'Planetary Live Risk Watch',
-    kind: 'Public dashboard',
-    description:
-      'An evidence-aware watch desk for tracking planetary risk signals, historical context, and what remains uncertain.',
-    status: 'Watching carefully',
-    accent: 'coral',
-    number: '05',
-    tags: ['research', 'dashboard'],
-    href: 'https://github.com/brendohxd/Planetary-Live-Risk-Watch',
-  },
-];
+import { projects, researchLinks, type Project } from './projects/project-data';
 
 const notes = [
   {
@@ -123,11 +55,9 @@ function ProjectCard({ project }: { project: Project }) {
     </>
   );
 
-  return project.href ? (
-    <a className="project-card" href={project.href} target="_blank" rel="noreferrer">
-      {content}
-    </a>
-  ) : <article className="project-card">{content}</article>;
+  return <Link className="project-card" href={`/projects/${project.slug}`}>
+    {content}
+  </Link>;
 }
 
 export default function Home() {
@@ -279,6 +209,18 @@ export default function Home() {
             <span className="support-link__icon">+</span>
             <span><strong>Collaborate</strong><small>Details to follow</small></span>
             <span className="support-link__status">open</span>
+          </div>
+        </div>
+        <div className="profile-links">
+          <p className="profile-links__label">Research record</p>
+          <p className="profile-links__intro">Follow the work through its archive and persistent researcher identity.</p>
+          <div className="profile-links__list">
+            {researchLinks.map((link) => (
+              <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
+                <span><strong>{link.label}</strong><small>{link.value}</small></span>
+                <ArrowUpRight />
+              </a>
+            ))}
           </div>
         </div>
       </section>
