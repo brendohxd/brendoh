@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowUpRight, SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { projects, researchLinks } from '../projects/project-data';
 
 export const metadata: Metadata = {
@@ -14,51 +15,11 @@ const principles = [
   ['03', 'Curiosity with consequences', 'Follow the interesting question far enough that it changes what you build, test, or choose next.'],
 ];
 
-function ArrowUpRight() {
-  return <span aria-hidden="true" className="arrow">↗</span>;
-}
-
-function SiteHeader() {
-  return (
-    <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="brendoh home">
-        <span className="wordmark__mark">b</span>
-        <span>brendoh</span>
-      </Link>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link href="/#work">Work</Link>
-        <Link href="/#notes">Notes</Link>
-        <Link href="/about" aria-current="page">About</Link>
-      </nav>
-      <Link className="header-cta" href="/#support">
-        Say hello <ArrowUpRight />
-      </Link>
-    </header>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="site-footer shell">
-      <div className="footer-top">
-        <Link className="wordmark wordmark--footer" href="/"><span className="wordmark__mark">b</span><span>brendoh</span></Link>
-        <p>Built slowly. Shared honestly.</p>
-        <a className="footer-back" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-      <div className="footer-bottom">
-        <span>© 2026 brendoh</span>
-        <span>Projects · notes · experiments</span>
-        <span>Made for the curious</span>
-      </div>
-    </footer>
-  );
-}
-
 export default function AboutPage() {
   return (
     <main className="about-page" id="top">
       <div className="grain" aria-hidden="true" />
-      <SiteHeader />
+      <SiteHeader currentPage="about" />
 
       <section className="about-hero shell">
         <div className="about-hero__copy">
@@ -148,7 +109,7 @@ export default function AboutPage() {
           <p>
             It pushes back. It reveals the weak assumption. It rewards patience, documentation, and the willingness to take something apart before pretending to understand it.
           </p>
-          <Link className="text-link" href="/#work">See the current projects <span aria-hidden="true">↓</span></Link>
+          <Link className="text-link" href="/work">See the current projects <span aria-hidden="true">↓</span></Link>
         </div>
       </section>
 

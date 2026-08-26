@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ArrowUpRight, SiteFooter, SiteHeader } from '../../components/SiteChrome';
 import { getProject, projects } from '../project-data';
 
 type ProjectPageProps = {
@@ -32,46 +33,6 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
-function ArrowUpRight() {
-  return <span aria-hidden="true" className="arrow">↗</span>;
-}
-
-function SiteHeader() {
-  return (
-    <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="brendoh home">
-        <span className="wordmark__mark">b</span>
-        <span>brendoh</span>
-      </Link>
-      <nav className="site-nav" aria-label="Main navigation">
-        <Link href="/#work">Work</Link>
-        <Link href="/#notes">Notes</Link>
-        <Link href="/about">About</Link>
-      </nav>
-      <Link className="header-cta" href="/#support">
-        Say hello <ArrowUpRight />
-      </Link>
-    </header>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="site-footer shell">
-      <div className="footer-top">
-        <Link className="wordmark wordmark--footer" href="/"><span className="wordmark__mark">b</span><span>brendoh</span></Link>
-        <p>Built slowly. Shared honestly.</p>
-        <a className="footer-back" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      </div>
-      <div className="footer-bottom">
-        <span>© 2026 brendoh</span>
-        <span>Projects · notes · experiments</span>
-        <span>Made for the curious</span>
-      </div>
-    </footer>
-  );
-}
-
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = getProject(slug);
@@ -81,11 +42,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <main className={`project-page project-page--${project.accent}`} id="top">
       <div className="grain" aria-hidden="true" />
-      <SiteHeader />
+      <SiteHeader currentPage="work" />
 
       <section className="project-detail__hero shell">
         <div className="project-detail__hero-copy">
-          <Link className="project-detail__back" href="/#work">← All projects</Link>
+          <Link className="project-detail__back" href="/work">← All projects</Link>
           <p className="eyebrow"><span className="eyebrow__pulse" /> Project {project.number} · {project.kind}</p>
           <h1>{project.name}</h1>
           <p className="project-detail__lead">{project.lead}</p>
@@ -140,7 +101,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       <section className="project-detail__return shell">
-        <Link className="button button--dark" href="/#work">Back to the project map <ArrowUpRight /></Link>
+        <Link className="button button--dark" href="/work">Back to the project map <ArrowUpRight /></Link>
       </section>
 
       <SiteFooter />

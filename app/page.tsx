@@ -1,91 +1,16 @@
-'use client';
-
-import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { projects, researchLinks, type Project } from './projects/project-data';
-
-const notes = [
-  {
-    label: 'Field notes · 06 min',
-    title: 'Build the trail, not just the result',
-    description:
-      'Why the most useful tools leave a legible path from question to evidence to decision.',
-  },
-  {
-    label: 'In progress · 04 min',
-    title: 'A personal internet that still feels human',
-    description:
-      'A few principles for building online spaces with more texture, context, and care.',
-  },
-  {
-    label: 'Working note · 08 min',
-    title: 'Small systems, serious edges',
-    description:
-      'What breaks when a prototype meets weather, memory, changing data, and actual people.',
-  },
-];
-
-const filters = ['all', 'product', 'research', 'software'];
-
-function ArrowUpRight() {
-  return <span aria-hidden="true" className="arrow">↗</span>;
-}
-
-function ProjectCard({ project }: { project: Project }) {
-  const content = (
-    <>
-      <div className={`project-mark project-mark--${project.accent}`}>
-        <span>{project.number}</span>
-        <span className="project-mark__dot" />
-      </div>
-      <div className="project-card__body">
-        <div className="project-card__meta">
-          <span>{project.kind}</span>
-          <span>{project.status}</span>
-        </div>
-        <h3>{project.name}</h3>
-        <p>{project.description}</p>
-        <div className="project-card__footer">
-          <div className="tag-list">
-            {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-          </div>
-          <ArrowUpRight />
-        </div>
-      </div>
-    </>
-  );
-
-  return <Link className="project-card" href={`/projects/${project.slug}`}>
-    {content}
-  </Link>;
-}
+import { ProjectCard } from './components/ProjectCard';
+import { ArrowUpRight, SiteFooter, SiteHeader } from './components/SiteChrome';
+import { notes } from './content/site-content';
+import { projects, researchLinks } from './projects/project-data';
 
 export default function Home() {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const visibleProjects = useMemo(() => {
-    if (activeFilter === 'all') return projects;
-    return projects.filter((project) => project.tags.includes(activeFilter));
-  }, [activeFilter]);
-
   return (
-    <main>
+    <main id="top">
       <div className="grain" aria-hidden="true" />
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="brendoh home">
-          <span className="wordmark__mark">b</span>
-          <span>brendoh</span>
-        </a>
-        <nav className="site-nav" aria-label="Main navigation">
-          <a href="#work">Work</a>
-          <a href="#notes">Notes</a>
-          <a href="/about">About</a>
-        </nav>
-        <a className="header-cta" href="#support">
-          Say hello <ArrowUpRight />
-        </a>
-      </header>
+      <SiteHeader />
 
-      <section className="hero shell" id="top">
+      <section className="hero shell">
         <div className="hero__copy">
           <p className="eyebrow"><span className="eyebrow__pulse" /> Personal site · 2026</p>
           <h1>Making room for<br /><em>better questions.</em></h1>
@@ -93,7 +18,7 @@ export default function Home() {
             I&apos;m Brendon. This is where I collect the things I&apos;m building, researching, and learning in public.
           </p>
           <div className="hero__actions">
-            <a className="button button--dark" href="#work">Explore the work <ArrowUpRight /></a>
+            <Link className="button button--dark" href="/work">Explore the work <ArrowUpRight /></Link>
             <Link className="text-link" href="/about">A little about me <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
@@ -115,60 +40,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work-section shell" id="work">
+      <section className="home-preview work-section shell" id="work">
         <div className="section-heading">
           <div>
             <p className="eyebrow">Selected work</p>
             <h2>A few things<br /><em>taking shape.</em></h2>
           </div>
-          <p className="section-heading__aside">Not a portfolio of finished trophies.<br />More like a map of the trail.</p>
+          <div className="section-heading__aside">
+            <p>Five threads.<br />One direction.</p>
+            <Link className="text-link" href="/work">See all work <span aria-hidden="true">→</span></Link>
+          </div>
         </div>
-
-        <div className="filter-row" aria-label="Filter projects">
-          {filters.map((filter) => (
-            <button
-              type="button"
-              key={filter}
-              className={activeFilter === filter ? 'filter filter--active' : 'filter'}
-              onClick={() => setActiveFilter(filter)}
-              aria-pressed={activeFilter === filter}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-
-        <div className="project-grid">
-          {visibleProjects.map((project) => <ProjectCard key={project.name} project={project} />)}
+        <div className="project-grid home-preview__grid">
+          {projects.slice(0, 3).map((project) => <ProjectCard key={project.name} project={project} />)}
         </div>
       </section>
 
-      <section className="notes-section shell" id="notes">
+      <section className="home-notes notes-section shell" id="notes">
         <div className="section-heading section-heading--compact">
           <div>
             <p className="eyebrow">From the notebook</p>
             <h2>Notes worth<br /><em>sharing.</em></h2>
           </div>
-          <span className="section-count">03 / 03</span>
+          <div className="section-heading__aside">
+            <p>Small observations.<br />Open questions.</p>
+            <Link className="text-link" href="/notes">Open the notebook <span aria-hidden="true">→</span></Link>
+          </div>
         </div>
         <div className="notes-grid">
-          {notes.map((note, index) => (
-            <article className="note-card" key={note.title}>
-              <span className="note-card__number">0{index + 1}</span>
+          {notes.map((note) => (
+            <Link className="note-card" href={`/notes/${note.slug}`} key={note.slug}>
+              <span className="note-card__number">{note.number}</span>
               <div>
                 <p className="note-card__label">{note.label}</p>
                 <h3>{note.title}</h3>
                 <p>{note.description}</p>
               </div>
-              <button className="note-card__link" type="button" aria-label={`Read ${note.title}`}>
-                Read note <ArrowUpRight />
-              </button>
-            </article>
+              <span className="note-card__link">Read note <ArrowUpRight /></span>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="about-section shell" id="about">
+      <section className="about-section shell">
         <div className="about-panel">
           <div className="about-panel__stamp">BR / 01</div>
           <div className="about-panel__copy">
@@ -225,18 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer shell">
-        <div className="footer-top">
-          <a className="wordmark wordmark--footer" href="#top"><span className="wordmark__mark">b</span><span>brendoh</span></a>
-          <p>Built slowly. Shared honestly.</p>
-          <a className="footer-back" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 brendoh</span>
-          <span>Projects · notes · experiments</span>
-          <span>Made for the curious</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }
