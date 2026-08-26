@@ -34,12 +34,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ticker" aria-label="Current focus">
-        <div className="ticker__track">
-          <span>Useful things</span><b>✳</b><span>Careful research</span><b>✳</b><span>Good questions</span><b>✳</b><span>Useful things</span><b>✳</b><span>Careful research</span><b>✳</b><span>Good questions</span>
-        </div>
-      </section>
-
       <section className="home-preview work-section shell" id="work">
         <div className="section-heading">
           <div>

@@ -98,11 +98,6 @@ h1 em, h2 em { color: var(--coral); font-family: var(--serif); font-weight: 400;
 .signal-label--bottom { bottom: 18%; left: 50%; transform: translateX(-50%); }
 .signal-label--left { top: 49%; left: 11%; }
 
-.ticker { overflow: hidden; background: var(--ink); color: var(--lime); }
-.ticker__track { display: flex; align-items: center; justify-content: space-around; gap: 38px; min-width: max-content; padding: 17px 25px; animation: ticker 32s linear infinite; font-family: var(--serif); font-size: 16px; font-style: italic; }
-.ticker__track b { color: var(--coral); font-family: var(--sans); font-size: 12px; font-style: normal; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-18%); } }
-
 .work-section { padding-block: 127px 130px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 51px; }
 .section-heading .eyebrow { margin-bottom: 20px; }
@@ -174,7 +169,6 @@ a.project-card:hover { background: white; box-shadow: 8px 8px 0 var(--lime); tra
   .site-header, .shell { width: calc(100% - 36px); }.header-cta { font-size: 10px; }.header-cta .arrow { font-size: 15px; }
   .hero { min-height: 0; padding-block: 67px 72px; }.hero__copy h1 { font-size: clamp(3.5rem, 17vw, 5rem); }.hero__actions { align-items: flex-start; flex-direction: column; gap: 18px; }.hero__signal { width: min(100%, 340px); margin-right: 0; }
   .signal-core { width: 105px; height: 105px; }.signal-core span { font-size: 9px; }.signal-label { font-size: 8px; }
-  .ticker__track { justify-content: flex-start; animation-duration: 24s; }
   .work-section { padding-block: 86px 92px; }.section-heading { align-items: flex-start; flex-direction: column; margin-bottom: 36px; }.section-heading__aside { margin: 0; text-align: left; }.section-heading h2, .support-section h2 { font-size: 3.25rem; }.filter-row { overflow-x: auto; padding-bottom: 4px; }.filter { flex: 0 0 auto; }
   .project-card { grid-template-columns: 69px minmax(0, 1fr); gap: 15px; padding: 15px; }.project-mark { min-height: 230px; }.project-card__meta { flex-direction: column; gap: 6px; }.project-card h3 { margin-top: 40px; font-size: 22px; }.project-card p { font-size: 11px; }
   .notes-section { padding-bottom: 92px; }.notes-grid { display: block; }.note-card, .note-card + .note-card, .note-card:last-child { min-height: 0; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }.note-card:last-child { border-bottom: 0; }.note-card__label { margin-bottom: 25px; }
