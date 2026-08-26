@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 
 type Project = {
   name: string;
@@ -147,7 +148,7 @@ export default function Home() {
         <nav className="site-nav" aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#notes">Notes</a>
-          <a href="#about">About</a>
+          <a href="/about">About</a>
         </nav>
         <a className="header-cta" href="#support">
           Say hello <ArrowUpRight />
@@ -163,7 +164,7 @@ export default function Home() {
           </p>
           <div className="hero__actions">
             <a className="button button--dark" href="#work">Explore the work <ArrowUpRight /></a>
-            <a className="text-link" href="#about">A little about me <span aria-hidden="true">↓</span></a>
+            <Link className="text-link" href="/about">A little about me <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
 
@@ -244,12 +245,12 @@ export default function Home() {
             <p className="eyebrow eyebrow--light">A little about me</p>
             <h2>Part builder,<br /><em>part witness.</em></h2>
             <p>
-              I like ideas that can survive contact with reality. That usually means making something, testing the edges, keeping the receipts, and staying open to being wrong.
+              I&apos;m Brendon James Boyd — an independent researcher and developer who moves between the whiteboard, the workbench, and the codebase.
             </p>
             <p>
-              brendoh.com is the public-facing index: the work, the thinking behind it, and the small discoveries in between.
+              I like ideas that can survive contact with reality: explicit claims, practical tools, honest uncertainty, and a clear trail.
             </p>
-            <a className="button button--light" href="#support">Keep in touch <ArrowUpRight /></a>
+            <Link className="button button--light" href="/about">Read the longer version <ArrowUpRight /></Link>
           </div>
           <div className="about-panel__shape" aria-hidden="true">
             <span className="shape-ring shape-ring--one" />
