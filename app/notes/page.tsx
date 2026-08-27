@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowUpRight, SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { notes } from '../content/site-content';
 
@@ -32,7 +31,7 @@ export default function NotesPage() {
       <section className="notes-page__content shell">
         <div className="editorial-list">
           {notes.map((note) => (
-            <Link className="editorial-card" href={`/notes/${note.slug}`} key={note.slug} reloadDocument>
+            <a className="editorial-card" href={`/notes/${note.slug}`} key={note.slug}>
               <span className="editorial-card__number">{note.number}</span>
               <div className="editorial-card__copy">
                 <p className="editorial-card__label">{note.label}</p>
@@ -40,7 +39,7 @@ export default function NotesPage() {
                 <p>{note.description}</p>
               </div>
               <span className="editorial-card__action">Read note <ArrowUpRight /></span>
-            </Link>
+            </a>
           ))}
         </div>
       </section>
@@ -52,7 +51,7 @@ export default function NotesPage() {
         </div>
         <div>
           <p>When a note grows into something longer, it will move into the blog — with room for references, revisions, and a little more breathing space.</p>
-          <Link className="text-link" href="/blog" reloadDocument>See what&apos;s developing <span aria-hidden="true">→</span></Link>
+          <a className="text-link" href="/blog">See what&apos;s developing <span aria-hidden="true">→</span></a>
         </div>
       </section>
 

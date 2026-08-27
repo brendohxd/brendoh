@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export type SitePage = 'work' | 'notes' | 'blog' | 'about';
 
 export function ArrowUpRight() {
@@ -16,25 +14,24 @@ export function SiteHeader({ currentPage }: { currentPage?: SitePage }) {
 
   return (
     <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="brendoh home" reloadDocument>
+      <a className="wordmark" href="/" aria-label="brendoh home">
         <span className="wordmark__mark">b</span>
         <span>brendoh</span>
-      </Link>
+      </a>
       <nav className="site-nav" aria-label="Main navigation">
         {navigation.map((item) => (
-          <Link
+          <a
             href={item.href}
             key={item.href}
             aria-current={currentPage === item.page ? 'page' : undefined}
-            reloadDocument
           >
             {item.label}
-          </Link>
+          </a>
         ))}
       </nav>
-      <Link className="header-cta" href="/#support" reloadDocument>
+      <a className="header-cta" href="/#support">
         Say hello <ArrowUpRight />
-      </Link>
+      </a>
     </header>
   );
 }
@@ -43,7 +40,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer shell">
       <div className="footer-top">
-        <Link className="wordmark wordmark--footer" href="/" reloadDocument><span className="wordmark__mark">b</span><span>brendoh</span></Link>
+        <a className="wordmark wordmark--footer" href="/"><span className="wordmark__mark">b</span><span>brendoh</span></a>
         <p>Built slowly. Shared honestly.</p>
         <a className="footer-back" href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </div>

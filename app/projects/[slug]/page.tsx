@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, SiteFooter, SiteHeader } from '../../components/SiteChrome';
 import { getProject, projects } from '../project-data';
@@ -46,7 +45,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <section className="project-detail__hero shell">
         <div className="project-detail__hero-copy">
-          <Link className="project-detail__back" href="/work" reloadDocument>← All projects</Link>
+          <a className="project-detail__back" href="/work">← All projects</a>
           <p className="eyebrow"><span className="eyebrow__pulse" /> Project {project.number} · {project.kind}</p>
           <h1>{project.name}</h1>
           <p className="project-detail__lead">{project.lead}</p>
@@ -101,7 +100,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       <section className="project-detail__return shell">
-        <Link className="button button--dark" href="/work" reloadDocument>Back to the project map <ArrowUpRight /></Link>
+        <a className="button button--dark" href="/work">Back to the project map <ArrowUpRight /></a>
       </section>
 
       <SiteFooter />

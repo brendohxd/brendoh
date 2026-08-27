@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, SiteFooter, SiteHeader } from '../../components/SiteChrome';
 import { getNote, notes } from '../../content/site-content';
@@ -37,7 +36,7 @@ export default async function NotePage({ params }: NotePageProps) {
 
       <section className="note-detail__hero shell">
         <div>
-          <Link className="note-detail__back" href="/notes" reloadDocument>← Back to notes</Link>
+          <a className="note-detail__back" href="/notes">← Back to notes</a>
           <p className="eyebrow"><span className="eyebrow__pulse" /> {note.label}</p>
           <h1>{note.title}</h1>
           <p className="note-detail__lede">{note.description}</p>
@@ -53,8 +52,8 @@ export default async function NotePage({ params }: NotePageProps) {
         <div className="note-detail__copy">
           {note.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           <div className="note-detail__footer">
-            <Link className="text-link" href="/notes" reloadDocument>More notes <span aria-hidden="true">→</span></Link>
-            <Link className="text-link" href="/blog" reloadDocument>To the blog <ArrowUpRight /></Link>
+            <a className="text-link" href="/notes">More notes <span aria-hidden="true">→</span></a>
+            <a className="text-link" href="/blog">To the blog <ArrowUpRight /></a>
           </div>
         </div>
       </article>

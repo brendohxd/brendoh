@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowUpRight, SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { projects, researchLinks } from '../projects/project-data';
 
@@ -86,13 +85,13 @@ export default function AboutPage() {
         </div>
         <div className="about-project-list">
           {projects.map((project, index) => (
-            <Link className="about-project" href={`/projects/${project.slug}`} key={project.name} reloadDocument>
+            <a className="about-project" href={`/projects/${project.slug}`} key={project.name}>
               <span className="about-project__number">0{index + 1}</span>
               <span className="about-project__name">{project.name}</span>
               <span className="about-project__kind">{project.kind}</span>
               <span className="about-project__detail">{project.shortDetail}</span>
               <ArrowUpRight />
-            </Link>
+            </a>
           ))}
         </div>
       </section>
@@ -109,7 +108,7 @@ export default function AboutPage() {
           <p>
             It pushes back. It reveals the weak assumption. It rewards patience, documentation, and the willingness to take something apart before pretending to understand it.
           </p>
-          <Link className="text-link" href="/work" reloadDocument>See the current projects <span aria-hidden="true">↓</span></Link>
+          <a className="text-link" href="/work">See the current projects <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
@@ -131,7 +130,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        <Link className="button button--dark" href="/#support" reloadDocument>Support the work <ArrowUpRight /></Link>
+        <a className="button button--dark" href="/#support">Support the work <ArrowUpRight /></a>
       </section>
 
       <SiteFooter />

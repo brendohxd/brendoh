@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowUpRight, SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { blogIdeas } from '../content/site-content';
 
@@ -69,7 +68,7 @@ export default function BlogPage() {
         </div>
         <div>
           <p>While the longer pieces find their shape, the Notes page is where the shorter observations live now.</p>
-          <Link className="button button--dark" href="/notes" reloadDocument>Read the notes <ArrowUpRight /></Link>
+          <a className="button button--dark" href="/notes">Read the notes <ArrowUpRight /></a>
         </div>
       </section>
 

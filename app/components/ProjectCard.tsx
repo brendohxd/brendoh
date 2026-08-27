@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { ArrowUpRight } from './SiteChrome';
 import type { Project } from '../projects/project-data';
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link className="project-card" href={`/projects/${project.slug}`} reloadDocument>
+    <a className="project-card" href={`/projects/${project.slug}`}>
       <div className={`project-mark project-mark--${project.accent}`}>
         <span>{project.number}</span>
         <span className="project-mark__dot" />
@@ -23,6 +22,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <ArrowUpRight />
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
