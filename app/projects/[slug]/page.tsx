@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <section className="project-detail__hero shell">
         <div className="project-detail__hero-copy">
-          <Link className="project-detail__back" href="/work">← All projects</Link>
+          <Link className="project-detail__back" href="/work" reloadDocument>← All projects</Link>
           <p className="eyebrow"><span className="eyebrow__pulse" /> Project {project.number} · {project.kind}</p>
           <h1>{project.name}</h1>
           <p className="project-detail__lead">{project.lead}</p>
@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       <section className="project-detail__return shell">
-        <Link className="button button--dark" href="/work">Back to the project map <ArrowUpRight /></Link>
+        <Link className="button button--dark" href="/work" reloadDocument>Back to the project map <ArrowUpRight /></Link>
       </section>
 
       <SiteFooter />

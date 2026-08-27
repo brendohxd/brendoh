@@ -18,8 +18,8 @@ export default function Home() {
             I&apos;m Brendon. This is where I collect the things I&apos;m building, researching, and learning in public.
           </p>
           <div className="hero__actions">
-            <Link className="button button--dark" href="/work">Explore the work <ArrowUpRight /></Link>
-            <Link className="text-link" href="/about">A little about me <span aria-hidden="true">↓</span></Link>
+            <Link className="button button--dark" href="/work" reloadDocument>Explore the work <ArrowUpRight /></Link>
+            <Link className="text-link" href="/about" reloadDocument>A little about me <span aria-hidden="true">↓</span></Link>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export default function Home() {
           </div>
           <div className="section-heading__aside">
             <p>Five threads.<br />One direction.</p>
-            <Link className="text-link" href="/work">See all work <span aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/work" reloadDocument>See all work <span aria-hidden="true">→</span></Link>
           </div>
         </div>
         <div className="project-grid home-preview__grid">
@@ -58,12 +58,12 @@ export default function Home() {
           </div>
           <div className="section-heading__aside">
             <p>Small observations.<br />Open questions.</p>
-            <Link className="text-link" href="/notes">Open the notebook <span aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/notes" reloadDocument>Open the notebook <span aria-hidden="true">→</span></Link>
           </div>
         </div>
         <div className="notes-grid">
           {notes.map((note) => (
-            <Link className="note-card" href={`/notes/${note.slug}`} key={note.slug}>
+            <Link className="note-card" href={`/notes/${note.slug}`} key={note.slug} reloadDocument>
               <span className="note-card__number">{note.number}</span>
               <div>
                 <p className="note-card__label">{note.label}</p>
@@ -88,7 +88,7 @@ export default function Home() {
             <p>
               I like ideas that can survive contact with reality: explicit claims, practical tools, honest uncertainty, and a clear trail.
             </p>
-            <Link className="button button--light" href="/about">Read the longer version <ArrowUpRight /></Link>
+            <Link className="button button--light" href="/about" reloadDocument>Read the longer version <ArrowUpRight /></Link>
           </div>
           <div className="about-panel__shape" aria-hidden="true">
             <span className="shape-ring shape-ring--one" />

@@ -4,7 +4,7 @@ import type { Project } from '../projects/project-data';
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link className="project-card" href={`/projects/${project.slug}`}>
+    <Link className="project-card" href={`/projects/${project.slug}`} reloadDocument>
       <div className={`project-mark project-mark--${project.accent}`}>
         <span>{project.number}</span>
         <span className="project-mark__dot" />

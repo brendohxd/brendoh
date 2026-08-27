@@ -69,7 +69,7 @@ export default function BlogPage() {
         </div>
         <div>
           <p>While the longer pieces find their shape, the Notes page is where the shorter observations live now.</p>
-          <Link className="button button--dark" href="/notes">Read the notes <ArrowUpRight /></Link>
+          <Link className="button button--dark" href="/notes" reloadDocument>Read the notes <ArrowUpRight /></Link>
         </div>
       </section>
 

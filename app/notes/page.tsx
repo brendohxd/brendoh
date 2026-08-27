@@ -32,7 +32,7 @@ export default function NotesPage() {
       <section className="notes-page__content shell">
         <div className="editorial-list">
           {notes.map((note) => (
-            <Link className="editorial-card" href={`/notes/${note.slug}`} key={note.slug}>
+            <Link className="editorial-card" href={`/notes/${note.slug}`} key={note.slug} reloadDocument>
               <span className="editorial-card__number">{note.number}</span>
               <div className="editorial-card__copy">
                 <p className="editorial-card__label">{note.label}</p>
@@ -52,7 +52,7 @@ export default function NotesPage() {
         </div>
         <div>
           <p>When a note grows into something longer, it will move into the blog — with room for references, revisions, and a little more breathing space.</p>
-          <Link className="text-link" href="/blog">See what&apos;s developing <span aria-hidden="true">→</span></Link>
+          <Link className="text-link" href="/blog" reloadDocument>See what&apos;s developing <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 

@@ -16,7 +16,7 @@ export function SiteHeader({ currentPage }: { currentPage?: SitePage }) {
 
   return (
     <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="brendoh home">
+      <Link className="wordmark" href="/" aria-label="brendoh home" reloadDocument>
         <span className="wordmark__mark">b</span>
         <span>brendoh</span>
       </Link>
@@ -26,12 +26,13 @@ export function SiteHeader({ currentPage }: { currentPage?: SitePage }) {
             href={item.href}
             key={item.href}
             aria-current={currentPage === item.page ? 'page' : undefined}
+            reloadDocument
           >
             {item.label}
           </Link>
         ))}
       </nav>
-      <Link className="header-cta" href="/#support">
+      <Link className="header-cta" href="/#support" reloadDocument>
         Say hello <ArrowUpRight />
       </Link>
     </header>
@@ -42,7 +43,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer shell">
       <div className="footer-top">
-        <Link className="wordmark wordmark--footer" href="/"><span className="wordmark__mark">b</span><span>brendoh</span></Link>
+        <Link className="wordmark wordmark--footer" href="/" reloadDocument><span className="wordmark__mark">b</span><span>brendoh</span></Link>
         <p>Built slowly. Shared honestly.</p>
         <a className="footer-back" href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </div>

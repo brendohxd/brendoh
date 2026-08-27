@@ -86,7 +86,7 @@ export default function AboutPage() {
         </div>
         <div className="about-project-list">
           {projects.map((project, index) => (
-            <Link className="about-project" href={`/projects/${project.slug}`} key={project.name}>
+            <Link className="about-project" href={`/projects/${project.slug}`} key={project.name} reloadDocument>
               <span className="about-project__number">0{index + 1}</span>
               <span className="about-project__name">{project.name}</span>
               <span className="about-project__kind">{project.kind}</span>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           <p>
             It pushes back. It reveals the weak assumption. It rewards patience, documentation, and the willingness to take something apart before pretending to understand it.
           </p>
-          <Link className="text-link" href="/work">See the current projects <span aria-hidden="true">↓</span></Link>
+          <Link className="text-link" href="/work" reloadDocument>See the current projects <span aria-hidden="true">↓</span></Link>
         </div>
       </section>
 
@@ -131,7 +131,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        <Link className="button button--dark" href="/#support">Support the work <ArrowUpRight /></Link>
+        <Link className="button button--dark" href="/#support" reloadDocument>Support the work <ArrowUpRight /></Link>
       </section>
 
       <SiteFooter />
