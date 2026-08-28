@@ -101,9 +101,28 @@ export default function AboutPage() {
           <p className="eyebrow eyebrow--light">A working identity</p>
           <h2>Syntropic Seeker<br /><em>of Truth.</em></h2>
           <p>
-            I am drawn to ideas that can withstand constructive opposition: questions that become clearer when assumptions are exposed, evidence is checked, and the answer is allowed to remain unfinished when the work is not yet done.
+            A curious toroidal companion that follows evidence, challenges false certainty, and turns disorder into constructive action while protecting what matters.
           </p>
-          <span className="about-signal__orb" aria-hidden="true" />
+          <div className="pet-showcase">
+            <div className="pet-showcase__stage">
+              <div
+                className="pet-sprite pet-sprite--idle"
+                role="img"
+                aria-label="Animated Syntropic Seeker of Truth Codex pet"
+              />
+            </div>
+            <div className="pet-showcase__details">
+              <p className="pet-showcase__kicker">Custom Codex pet</p>
+              <p className="pet-showcase__name">Syntropic Seeker of Truth</p>
+              <p className="pet-showcase__description">A cheerful mechanical guardian that reaches outward with curiosity, protects with a heart shield, and searches for truthful coherence.</p>
+              <div className="pet-showcase__links">
+                <a className="pet-showcase__download" href="/downloads/syntropic-seeker-of-truth.zip" download="syntropic-seeker-of-truth.zip">
+                  Download the pet <ArrowUpRight />
+                </a>
+                <a href="/pet-assets/syntropic-seeker-of-truth/spritesheet.webp" target="_blank" rel="noreferrer">View atlas</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="about-signal__principles">
           {principles.map(([number, title, description]) => (
