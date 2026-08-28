@@ -106,7 +106,7 @@ export default function AboutPage() {
           <div className="pet-showcase">
             <div className="pet-showcase__stage">
               <div
-                className="pet-sprite pet-sprite--idle"
+                className="pet-gif"
                 role="img"
                 aria-label="Animated Syntropic Seeker of Truth Codex pet"
               />
@@ -116,10 +116,10 @@ export default function AboutPage() {
               <p className="pet-showcase__name">Syntropic Seeker of Truth</p>
               <p className="pet-showcase__description">A cheerful mechanical guardian that reaches outward with curiosity, protects with a heart shield, and searches for truthful coherence.</p>
               <div className="pet-showcase__links">
-                <a className="pet-showcase__download" href="/downloads/syntropic-seeker-of-truth.zip" download="syntropic-seeker-of-truth.zip">
-                  Download the pet <ArrowUpRight />
+                <a className="pet-showcase__download" href="/pet-assets/syntropic-seeker-of-truth/syntropic-seeker-of-truth.gif" download="syntropic-seeker-of-truth.gif">
+                  Download animated GIF <ArrowUpRight />
                 </a>
-                <a href="/pet-assets/syntropic-seeker-of-truth/spritesheet.webp" target="_blank" rel="noreferrer">View atlas</a>
+                <a href="/downloads/syntropic-seeker-of-truth.zip" download="syntropic-seeker-of-truth.zip">Codex package</a>
               </div>
             </div>
           </div>
