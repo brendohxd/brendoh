@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   authors: [{ name: 'Brendon James Boyd', url: 'https://brendoh.com/about' }],
+  icons: {
+    icon: [{ url: '/brendoh-icon.svg', type: 'image/svg+xml' }],
+    shortcut: ['/brendoh-icon.svg'],
+    apple: [{ url: '/brendoh-icon.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
     title: 'brendoh — making room for better questions',
     description:
