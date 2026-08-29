@@ -5,6 +5,9 @@ import { notes } from '../content/site-content';
 export const metadata: Metadata = {
   title: 'Notes — brendoh',
   description: 'Field notes and working observations from Brendon James Boyd.',
+  alternates: {
+    canonical: '/notes',
+  },
 };
 
 export default function NotesPage() {

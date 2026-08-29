@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: `${project.name} — brendoh`,
     description: project.description,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
     openGraph: {
       title: `${project.name} — brendoh`,
       description: project.description,

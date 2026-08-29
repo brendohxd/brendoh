@@ -6,6 +6,33 @@ export const metadata: Metadata = {
   title: 'About — brendoh',
   description:
     'About Brendon Boyd: an independent researcher, developer, practical systems builder, and mechanic based in Perth, Western Australia.',
+  alternates: {
+    canonical: '/about',
+  },
+};
+
+const profileStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': 'https://brendoh.com/about#profile',
+  url: 'https://brendoh.com/about',
+  name: 'About Brendon Boyd — brendoh',
+  isPartOf: {
+    '@id': 'https://brendoh.com/#website',
+  },
+  mainEntity: {
+    '@type': 'Person',
+    '@id': 'https://brendoh.com/about#person',
+    name: 'Brendon James Boyd',
+    description:
+      'An independent researcher, developer, practical systems builder, and mechanic based in Perth, Western Australia.',
+    url: 'https://brendoh.com/about',
+    jobTitle: 'Independent researcher and developer',
+    sameAs: [
+      'https://github.com/brendohxd',
+      'https://orcid.org/0009-0007-4177-2612',
+    ],
+  },
 };
 
 const principles = [
@@ -29,6 +56,10 @@ const principles = [
 export default function AboutPage() {
   return (
     <main className="about-page" id="top">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileStructuredData) }}
+      />
       <div className="grain" aria-hidden="true" />
       <SiteHeader currentPage="about" />
 

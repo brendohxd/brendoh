@@ -20,6 +20,9 @@ export async function generateMetadata({ params }: NotePageProps): Promise<Metad
   return {
     title: `${note.title} — brendoh`,
     description: note.description,
+    alternates: {
+      canonical: `/notes/${note.slug}`,
+    },
   };
 }
 

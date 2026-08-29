@@ -5,6 +5,9 @@ import { WorkExplorer } from '../components/WorkExplorer';
 export const metadata: Metadata = {
   title: 'Work — brendoh',
   description: 'Projects, research programs, and practical tools by Brendon James Boyd.',
+  alternates: {
+    canonical: '/work',
+  },
 };
 
 export default function WorkPage() {

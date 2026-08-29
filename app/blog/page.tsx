@@ -5,6 +5,9 @@ import { blogIdeas } from '../content/site-content';
 export const metadata: Metadata = {
   title: 'Blog — brendoh',
   description: 'Long-form writing and essays in development by Brendon James Boyd.',
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default function BlogPage() {

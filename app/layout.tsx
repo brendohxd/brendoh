@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   description:
     'The personal site of Brendon: projects, research, notes, and experiments taking shape in public.',
   metadataBase: new URL('https://brendoh.com'),
+  alternates: {
+    canonical: '/',
+  },
+  authors: [{ name: 'Brendon James Boyd', url: 'https://brendoh.com/about' }],
   openGraph: {
     title: 'brendoh — making room for better questions',
     description:
@@ -22,6 +26,22 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://brendoh.com/#website',
+  name: 'brendoh',
+  url: 'https://brendoh.com/',
+  description:
+    'The personal site of Brendon: projects, research, notes, and experiments taking shape in public.',
+  publisher: {
+    '@type': 'Person',
+    '@id': 'https://brendoh.com/about#person',
+    name: 'Brendon James Boyd',
+    url: 'https://brendoh.com/about',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteStructuredData) }}
+        />
         {children}
       </body>
     </html>
