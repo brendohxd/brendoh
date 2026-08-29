@@ -19,6 +19,21 @@ export type Project = {
   lead: string;
   whatItDoes: string[];
   retrospective: string;
+  coreIdentity?: {
+    summary: string;
+    elements: Array<{
+      label: string;
+      title: string;
+      description: string;
+    }>;
+  };
+  thermodynamics?: {
+    lead: string;
+    paragraphs: string[];
+    caveat: string;
+    sourceHref: string;
+    sourceLabel: string;
+  };
   links: ProjectLink[];
 };
 
@@ -70,20 +85,63 @@ export const projects: Project[] = [
     kind: 'Research program',
     shortDetail: 'Cosmology, gravitation, and open-system questions.',
     description:
-      'A long-running cosmology research program working to make ambitious ideas more explicit, testable, and honest about their limits.',
+      'An independent cosmology research program with a public main branch for the original ITSM framework and a separate recovery branch for critical reconstruction and gate-based testing.',
     status: 'Deep work',
     accent: 'violet',
     number: '02',
     tags: ['research', 'physics'],
     lead:
-      'The Integrated Toroidal-Syntropic Model is an evolving research framework exploring finite-density vacuum ideas, compact toroidal topology, open-system thermodynamics, and emergent low-acceleration dynamics.',
+      'The Integrated Toroidal-Syntropic Model is an evolving research program with two related lines of work: the main branch develops the original relativistic, superfluid-plenum, toroidal, and syntropic framework, while the recovery branch reconstructs and tests its foundations after critical review.',
+    coreIdentity: {
+      summary:
+        'At its core, ITSM is a proposed relativistic cosmology that treats the universe as a continuous 3-torus (T³), the vacuum as an active toroidal superfluid plenum, and cosmic evolution as an open thermodynamic process. Its main line organizes the framework around baryonic mass, the Hubble flow, and toroidal geometry; its recovery line reconstructs and stress-tests those foundations. It asks whether phenomena commonly assigned to dark matter or dark energy can emerge from geometry, medium dynamics, and boundary exchange. It remains a research proposal, not an established replacement for ΛCDM.',
+      elements: [
+        {
+          label: '01 / Geometry',
+          title: 'A compact 3-torus scaffold.',
+          description:
+            'Toroidal geometry, circulation, and boundary conditions provide the global structure in which the model places its cosmological dynamics.',
+        },
+        {
+          label: '02 / Medium',
+          title: 'An active superfluid plenum.',
+          description:
+            'The vacuum is modeled as a dynamical medium whose interaction with baryonic matter may produce torsional and wake-like effects.',
+        },
+        {
+          label: '03 / Exchange',
+          title: 'An open thermodynamic circuit.',
+          description:
+            'Syntropic source and flux terms represent possible organizing exchange across the global boundary rather than a sealed cosmic box.',
+        },
+        {
+          label: '04 / Method',
+          title: 'Derivation before declaration.',
+          description:
+            'The framework is meant to stand on explicit assumptions, reproducible calculations, observational tests, and a visible record of failure.',
+        },
+      ],
+    },
+    thermodynamics: {
+      lead:
+        'The paper proposes that the classical second law is correctly scoped for locally closed systems, but incomplete when extrapolated to a universe that may have periodic, open T³ boundaries. Its proposed completion adds a syntropic boundary-flow term rather than discarding entropy production.',
+      paragraphs: [
+        'The central move is one of scope. A laboratory, stellar interior, or other locally bounded region can still obey Clausius: localized entropy production remains non-negative. The question is whether that local rule, unchanged, is enough to determine the global fate of a universe whose boundary conditions have not been established as closed.',
+        'Within the ITSM proposal, the global entropy balance gains a boundary term. The Syntropic Source Vector, written as Ξsyn in this paper, represents an organizing inflow through the periodic boundary of the proposed 3-torus. In the balanced case, the paper proposes that this convergence can offset localized entropic production.',
+        'That does not erase local dissipation or make every subsystem reversible. It changes the global conclusion: universal heat death becomes conditional on the topology and boundary flux, rather than an unavoidable result of applying a closed-system law to the entire cosmos.',
+      ],
+      caveat:
+        'This is a proposed completion, not an accepted revision of thermodynamics. Its force depends on whether the universe has the relevant global topology, whether the source vector can be derived consistently, and whether its scaling and predictions survive independent testing.',
+      sourceHref: 'https://zenodo.org/records/20963738',
+      sourceLabel: 'Read the full thermodynamics preprint',
+    },
     whatItDoes: [
-      'Maintains a covariant architecture, claim ledger, and gate-based research workflow so assumptions, derivations, conditional routes, and rejected arguments remain distinct.',
-      'Re-tests the model’s proposed mechanisms and numerical predictions in a declared order rather than treating an attractive result as a finished theory.',
-      'Publishes the working record alongside code, manuscripts, archival releases, and reproduction material so the trail can be inspected by other people.',
+      'The main branch develops the original ITSM framework: compact toroidal geometry, an active superfluid plenum, syntropic open-system dynamics, relativistic field equations, computational analyses, and observational comparisons.',
+      'The recovery branch preserves the model’s identity while reconstructing its foundations, recording assumptions and rejected arguments, and re-testing mechanisms and predictions behind explicit scientific gates.',
+      'Publishes the working record alongside code, manuscripts, datasets, archival releases, and reproduction material so both the original research line and its critical reassessment can be inspected.',
     ],
     retrospective:
-      'ITSM is deliberately presented as a recovery program, not as a completed or validated cosmology. The current branch preserves the model’s identity while reopening mechanisms and predictions behind explicit scientific gates. The useful retrospective is therefore also a record of what did not survive scrutiny, what remains conditional, and what still has to be derived.',
+      'The main branch is the original public research line: it gathers the foundational manuscript, mathematical framework, computational scripts, data work, and observational comparisons. The recovery branch is a separate audit and reconstruction line that reopens the architecture and predictions behind explicit gates. Neither branch should be read as an established replacement for contemporary cosmology; the useful record includes what survives testing, what remains conditional, and what has been rejected or still needs derivation.',
     links: [
       {
         label: 'itsm-cosmology.org',
@@ -100,12 +158,19 @@ export const projects: Project[] = [
       {
         label: 'GitHub repository',
         href: 'https://github.com/brendohxd/ITSM-Integrated-Toroidal-Syntropic-Model',
-        description: 'The canonical working repository for code, manuscripts, gates, and research history.',
+        description: 'The source repository for the public main line, the recovery branch, code, manuscripts, gates, and research history.',
       },
       {
-        label: 'Zenodo archive',
-        href: 'https://doi.org/10.5281/zenodo.20774996',
-        description: 'The archived ITSM publication record and versioned research deposit.',
+        label: 'Latest Zenodo preprint',
+        href: 'https://zenodo.org/records/21796598',
+        description:
+          'The later ITSM cosmology preprint: core identity, field equations, topology-induced superfluid dynamics, falsifiability, and stated limitations.',
+      },
+      {
+        label: 'Syntropic thermodynamics preprint',
+        href: 'https://zenodo.org/records/20963738',
+        description:
+          'The detailed proposal for completing the second law on an open T³ manifold through a syntropic boundary-flow term.',
       },
       {
         label: 'ORCID profile',

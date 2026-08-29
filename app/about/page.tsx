@@ -47,10 +47,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-story shell">
+      <section className="about-story shell" id="story">
         <div className="about-story__label">
           <p className="eyebrow">The person behind the work</p>
-          <span>01 — 08</span>
+          <nav className="about-page-index" aria-label="About page sections">
+            <p className="about-page-index__label">On this page</p>
+            <a href="#story"><span className="about-page-index__number">01</span><span>Story</span></a>
+            <a href="#path"><span className="about-page-index__number">02</span><span>Path</span></a>
+            <a href="#identity"><span className="about-page-index__number">03</span><span>Identity</span></a>
+            <a href="#itsm"><span className="about-page-index__number">04</span><span>Research</span></a>
+            <a href="#projects"><span className="about-page-index__number">05</span><span>Projects</span></a>
+            <a href="#systems"><span className="about-page-index__number">06</span><span>Systems</span></a>
+            <a href="#mechanics"><span className="about-page-index__number">07</span><span>Practice</span></a>
+            <a href="#close"><span className="about-page-index__number">08</span><span>Future</span></a>
+          </nav>
         </div>
         <div className="about-story__body">
           <p className="about-lead">
@@ -96,7 +106,7 @@ export default function AboutPage() {
         </article>
       </section>
 
-      <section className="about-signal shell">
+      <section className="about-signal shell" id="identity">
         <div className="about-signal__identity">
           <p className="eyebrow eyebrow--light">A working identity</p>
           <h2>Syntropic Seeker<br /><em>of Truth.</em></h2>
@@ -356,7 +366,7 @@ export default function AboutPage() {
         </article>
       </section>
 
-      <section className="about-close shell">
+      <section className="about-close shell" id="close">
         <div className="about-close__line" />
         <p className="eyebrow">What I am building toward</p>
         <h2>A meaningful life,<br /><em>built deliberately.</em></h2>

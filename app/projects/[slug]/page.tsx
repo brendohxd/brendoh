@@ -58,6 +58,52 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       <div className="project-detail__layout shell">
         <article className="project-detail__content">
+          {project.coreIdentity && (
+            <section className="project-detail__section project-detail__section--identity">
+              <p className="eyebrow">Core identity</p>
+              <h2>What the model<br /><em>is.</em></h2>
+              <p className="project-detail__section-lede">{project.coreIdentity.summary}</p>
+              <div className="project-detail__identity-grid">
+                {project.coreIdentity.elements.map((element) => (
+                  <article className="project-detail__identity-item" key={element.label}>
+                    <span>{element.label}</span>
+                    <h3>{element.title}</h3>
+                    <p>{element.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {project.thermodynamics && (
+            <section className="project-detail__section project-detail__section--thermodynamics" id="thermodynamics">
+              <p className="eyebrow">Dedicated proposal</p>
+              <h2>Completing<br /><em>the second law.</em></h2>
+              <p className="project-detail__section-lede">{project.thermodynamics.lead}</p>
+              <div className="project-detail__thermodynamics-grid">
+                <div className="project-detail__thermodynamics-copy">
+                  {project.thermodynamics.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+                <div className="project-detail__equations">
+                  <div className="project-detail__equation">
+                    <span className="project-detail__equation-label">Proposed global balance</span>
+                    <code>∂S/∂t = σ<sub>ent</sub> − ∇ · Ξ<sub>syn</sub></code>
+                    <span>Local entropy production minus the convergence of the syntropic source vector.</span>
+                  </div>
+                  <div className="project-detail__equation project-detail__equation--accent">
+                    <span className="project-detail__equation-label">Balanced manifold</span>
+                    <code>σ<sub>ent</sub> = ∇ · Ξ<sub>syn</sub> ⇒ ∂S/∂t = 0</code>
+                    <span>A proposed balance, conditional on the open T³ boundary and source term being physically real.</span>
+                  </div>
+                </div>
+              </div>
+              <p className="project-detail__caveat">{project.thermodynamics.caveat}</p>
+              <a className="text-link" href={project.thermodynamics.sourceHref} target="_blank" rel="noreferrer">
+                {project.thermodynamics.sourceLabel} <ArrowUpRight />
+              </a>
+            </section>
+          )}
+
           <section className="project-detail__section">
             <p className="eyebrow">The brief</p>
             <h2>What it<br /><em>does.</em></h2>
